@@ -1,7 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  font-family: var(--main-font);
+  font-family: var(--main-font), monospace;
   font-size: var(--main-text-font-size);
   background-color: var(--main-background-color);
   background-image: url('../images/cover-image-dark.png');
@@ -14,8 +14,7 @@
 .header {
   padding: var(--containers-side-margin);
   display: grid;
-  grid-template-rows: repeat(min-content min-content min-content max-content);
-  flex-direction: column;
+  grid-template-rows: min-content max-content max-content 1fr;
   position: relative;
   margin-bottom: var(--header-margin);
   height: 100vh;
@@ -60,14 +59,14 @@
   height: 25px;
   border-bottom: 1px solid var(--decor-color);
   border-left: 1px solid var(--decor-color);
-  align-self: flex-end;
+  align-self: end;
 }
 
 .header__theme-menu {
   justify-self: end;
 
-  margin-top: 3.6vh;
-  margin-bottom: 7vh;
+  margin-top: 6vh;
+  margin-bottom: 10vh;
 }
 
 .header__theme-menu-list {
@@ -99,6 +98,7 @@
 
 .header__theme-menu-button_active {
   border: 1px solid var(--decor-color);
+  pointer-events: none;
 }
 
 .main-title {
@@ -133,7 +133,7 @@
 }
 
 .main-content-section:not(:last-child) {
-  margin-bottom: var(--block-margin);
+  margin-bottom: calc(var(--block-margin) - var(--paragraph-margin));
 }
 
 .main-content-section:last-child {
@@ -144,6 +144,21 @@
   color: var(--decor-color);
   font-size: var(--main-text-font-size);
   margin-bottom: var(--paragraph-margin);
+}
+
+.Concentration {
+  display: flex;
+  flex-direction: column;
+}
+
+.Low-concentration {
+  display: flex;
+  flex-direction: column;
+}
+
+.Better-concentration {
+  display: flex;
+  flex-direction: column;
 }
 
 .inner-section-container:not(:last-child) {
@@ -157,6 +172,7 @@
 
 .decorated-main-text {
   color: var(--main-text-color);
+  margin-bottom: var(--paragraph-margin);
 }
 
 .inner-paragraph-title {
@@ -230,7 +246,7 @@
 
 @media (768px <= width) {
   :root {
-    --block-margin: 79px;
+    --block-margin: 80px;
     --header-margin: 60px;
     --containers-side-margin: 20px;
     --tittle-font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
@@ -267,28 +283,34 @@
 
   .header-intro {
     align-self: flex-end;
-    width: 364px;
+    max-width: 364px;
+    width: 100%;
   }
 
   .Concentration {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: max-content 2fr;
   }
 
   .block-title {
-    width: 236px;
+    max-width: 236px;
+    width: 100%;
     margin-right: 20px;
+  }
+
+  .Low-concentration {
+    display: flex;
+    flex-direction: column;
   }
 
   .Better-concentration {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: max-content 2fr;
   }
 
   .gallery-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 24.6% 29.5% 41%;
     gap: 20px;
   }
 
@@ -338,7 +360,8 @@
   }
 
   .header::after {
-    margin-top: 80px;
+    grid-row: 4;
+    margin-top: 0;
   }
 
   .header__theme-menu {
@@ -347,7 +370,7 @@
     margin-top: 0;
     justify-self: center;
     margin-left: 18px;
-    margin-bottom: 34.8vh;
+    margin-bottom: 35.5vh;
   }
 
   .header__theme-menu-list {
@@ -364,24 +387,21 @@
   }
 
   .header-intro {
-    width: 491px;
+    max-width: 491px;
   }
 
   .block-title {
-    width: 315px;
+    max-width: 315px;
   }
 
   .Low-concentration-text-container {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--paragraph-margin);
   }
 
   .Low-concentration-text-container .inner-section-container {
-    width: 33%;
-  }
-
-  .gallery-container {
-    grid-template-rows: 24.6% 29.5% 41%;
+    flex: 1 0 30%;
   }
 
   .footer {

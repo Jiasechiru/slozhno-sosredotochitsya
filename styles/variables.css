@@ -12,7 +12,7 @@
   --par-title-color: #000028;
   --hover-button-color: rgb(255, 0, 112, 0.4);
 
-  --main-font: 'IBM Plex mono', sans-serif;
+  --main-font: 'IBM Plex mono', monospace;
 
   --main-text-font-size: 18px;
   --tittle-font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
