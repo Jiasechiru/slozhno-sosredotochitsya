@@ -14,7 +14,7 @@
 .header {
   padding: var(--containers-side-margin);
   display: grid;
-  grid-template-rows: min-content max-content max-content 1fr;
+  grid-template-rows: min-content 1fr max-content 1fr;
   position: relative;
   margin-bottom: var(--header-margin);
   height: 100vh;
